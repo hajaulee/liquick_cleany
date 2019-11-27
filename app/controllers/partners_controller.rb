@@ -8,6 +8,12 @@ class PartnersController < ApplicationController
     @users = Partner.all  
   end
 
+  def showWorking
+    redirect_to '/' unless partner_logged_in?
+    @working_logs = current_partner.working_logs
+    render :working_part
+  end
+
   def new
     redirect_to '/' if partner_logged_in?
     @user = Partner.new

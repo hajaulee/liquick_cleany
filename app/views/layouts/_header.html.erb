@@ -97,21 +97,14 @@
                         <div class="classynav">
                             <ul>
                                 <li class="active"><a href="<%= root_path %>">Home</a></li>
+                                <% if current_partner %>
+                                    <li><a href="<%= partner_working_path %>">Working Part</a></li>
+                                <% end %>
+                                <% if current_user %>
+                                    <li><a href="<%= user_booking_path %>">Booking Part</a></li>
+                                <% end %>
                                 <li><a href="#">Archives</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="<%= root_path %>">- Home</a></li>
-                                        <li><a href="#">- Archive List</a></li>
-                                        <li><a href="#">- Archive Grid</a></li>
-                                        <li><a href="#">- Single Post</a></li>
-                                        <li><a href="#">- Single Video Post</a></li>
-                                        <li><a href="#">- Contact</a></li>
-                                        <li><a href="#">- Typography</a></li>
-                                        <li><a href="#">- Login</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Features</a>
-                                </li>
+                                <li><a href="#">Features</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>

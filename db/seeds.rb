@@ -35,3 +35,69 @@ until i > 8 #Until we've gone over 5
          cost: 500*i)
     i = i+1
 end #End the loop
+
+WorkingLog.create!(
+    user_id: 1,
+    partner_id: 1,
+    worktime_start: 7,
+    worktime_end: 8,
+    address: "Thanh Xuan, Ha Noi",
+    cost: 500,
+    working_date: DateTime.now.to_date,
+    status: 1,
+    note: 'Please call me!'
+)
+
+WorkingLog.create!(
+    user_id: 3,
+    partner_id: 1,
+    worktime_start: 7,
+    worktime_end: 8,
+    address: "Thanh Xuan, Ha Noi",
+    cost: 500,
+    working_date: DateTime.now.next_day(1).to_date,
+    status: 1,
+    note: 'Hello! Help me clean my room'
+)
+
+WorkingLog.create!(
+    user_id: 2,
+    partner_id: 1,
+    worktime_start: 7,
+    worktime_end: 8,
+    address: "Thanh Xuan, Ha Noi",
+    cost: 500,
+    working_date: DateTime.now.next_day(2).to_date,
+    status: 1,
+    note: 'Hello! Help me clean my room'
+)
+
+WorkingLog.create!(
+    user_id: 4,
+    partner_id: 2,
+    worktime_start: 7,
+    worktime_end: 8,
+    address: "Thanh Xuan, Ha Noi",
+    cost: 1000,
+    working_date: DateTime.now.next_day(1).to_date,
+    status: 1,
+    note: 'Hello! Help me clean my room'
+<<<<<<< Updated upstream
+)
+=======
+)
+
+100.times do
+    WorkingLog.create!(
+        user_id: rand(1..8),
+        partner_id: rand(1..8),
+        worktime_start: rand(6..10),
+        worktime_end: rand(11..12),
+        address: "Thanh Xuan, Ha Noi",
+        cost: rand(1000..2000),
+        working_date: Time.at(rand(Date.new(2019,12,1).to_time.to_f..2.days.ago.to_f)).to_date,
+        status: 1,
+        note: 'Hello! Help me clean my room'
+    )
+end
+>>>>>>> Stashed changes

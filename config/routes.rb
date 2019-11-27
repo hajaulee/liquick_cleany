@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   
   resources :partners, except: [:new]
 
+  get 'partner/working' => 'partners#showWorking', as: 'partner_working'
+  get 'user/booking' => 'users#showBooking', as: 'user_booking'
+
   root "homes#index"
 
   namespace :admin do
@@ -19,6 +22,11 @@ Rails.application.routes.draw do
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
     get '', to: 'admins#dashboard', as: 'dashboard'
+<<<<<<< Updated upstream
+=======
+    get 'dashboard', to: 'admins#dashboard'
+    get 'users_list', to: 'admins#show_users', as: 'users_list'
+>>>>>>> Stashed changes
     get 'resetpass', to: 'admins#resetpass', as: 'resetpass'
     post 'reset', to: 'admins#send_reset_mail', as: 'send_reset_mail'
     get 'newpassword' => 'reset_password#edit', as: 'new_password'
@@ -36,6 +44,10 @@ Rails.application.routes.draw do
 
   get 'get_district' => 'homes#get_district'
   get 'staff_search' => 'partners#search', as: 'staff_search'
+  post 'booking' => 'books#handleBook'
+
+  post 'deleteBooking' => 'books#deleteBooking'
+  post 'acceptBooking' => 'books#acceptBooking'
   
   resources :users, except: [:new]
   resources :account_activations, only: [:edit]

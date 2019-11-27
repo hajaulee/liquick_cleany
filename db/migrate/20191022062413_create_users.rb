@@ -14,6 +14,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :reset_digest
       t.datetime :reset_sent_at
 
+      t.references :user, foreign_key: true
+      t.references :partner, foreign_key: true
 
       t.timestamps
     end

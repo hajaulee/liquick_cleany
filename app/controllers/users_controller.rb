@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     @users = User.all  
   end
 
+  def showBooking
+    redirect_to '/' unless logged_in?
+    @working_logs = current_user.working_logs
+    render :booking_part
+  end
+
   def new
     redirect_to '/' if logged_in?
     @user = User.new

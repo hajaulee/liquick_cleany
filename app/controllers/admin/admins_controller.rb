@@ -57,8 +57,24 @@ class Admin::AdminsController < ApplicationController
   # GET /admin/dashboard
   def dashboard
     admin_authenticated
+<<<<<<< Updated upstream
     @users = User.all
   end
+=======
+    @users_count = User.count
+    @partners_count = Partner.count
+    @booking_count = WorkingLog.count
+    @money = WorkingLog.sum(:cost)
+    @money_month = WorkingLog.where(:status => 1).where("working_date < ?", Time.now).group(:working_date).sum(:cost).to_json
+  end
+
+  # GET /admin/show_users
+  def show_users
+    admin_authenticated
+    @users = User.all
+  end
+
+>>>>>>> Stashed changes
   # GET /admin/admins/new
   # def new
   #   @admin_admin = Admin::Admin.new
